@@ -1,0 +1,54 @@
+[project]
+name = "tailoring-mt-to-audience-and-intent"
+version = "1.0.0"
+description = "Code for 'Beyond \"To whom it may concern\": Tailoring Machine Translation to Audience and Intent' (EMNLP 2026)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "CC-BY-4.0" }
+dependencies = [
+    # data + models
+    "datasets<4.0.0",
+    "huggingface-hub>=0.28.0",
+    "transformers==4.57.*",
+    "sentence-transformers>=3.0.0",
+    # LLM API access (Gemini judge, instruction generation)
+    "litellm>=1.80.17",
+    "google-genai>=1.53.0",
+    "diskcache>=5.6.3",
+    # metrics
+    "unbabel-comet>=2.2.7",
+    "sacrebleu>=2.5.1",
+    "scipy>=1.14.0",
+    "numpy>=1.26.0",
+    # utilities
+    "pydantic>=2.12.4",
+    "pycountry>=24.6.1",
+    "python-dotenv>=1.2.1",
+    "tqdm>=4.66.0",
+    "requests>=2.32.0",
+    "matplotlib>=3.10.8",
+]
+
+[project.optional-dependencies]
+# Appendix I: PEFT distillation from a 27B teacher.
+train = [
+    "torch>=2.5.0",
+    "peft>=0.18.0",
+    "trl>=0.28.0",
+    "bitsandbytes>=0.48.2; sys_platform == 'linux'",
+    "wandb>=0.23.0",
+]
+# Appendix L: re-running the Label Studio annotation setup.
+annotation = [
+    "pyjwt>=2.10.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+]
+
+# NOTE: vLLM is required for every translation script but is deliberately not listed
+# here: its build is CUDA- and driver-specific, so it should be installed to match your
+# GPU stack. See https://docs.vllm.ai/en/latest/getting_started/installation.html
+# The evaluation, metric and analysis scripts run without it.

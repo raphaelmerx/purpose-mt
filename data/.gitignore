@@ -1,0 +1,4 @@
+# Gated data must never be committed: it derives from BOUQuET and WMT24++ and is
+# distributed through a gated HuggingFace dataset. See data/README.md.
+gated/
+scores/

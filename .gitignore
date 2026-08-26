@@ -1,0 +1,19 @@
+# Gated benchmark-derived data. Fetched with `python -m data.download`, never committed.
+/datasets/
+/annotation_exports/
+/translation_results/
+/data/gated/
+/data/scores/
+
+# Local staging copy of the HuggingFace dataset (upload target, not repo content)
+/hf-dataset/
+
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.venv/
+
+/figures/
+/cache/

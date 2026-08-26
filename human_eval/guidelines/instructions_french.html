@@ -1,0 +1,157 @@
+<div class="tqa-instructions">
+  <style>
+    .tqa-instructions {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1f1f1f;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+    .tqa-instructions h2 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+    .tqa-instructions h3 {
+      margin: 16px 0 8px 0;
+      font-size: 15px;
+    }
+    .tqa-instructions p {
+      margin: 8px 0;
+    }
+    .tqa-instructions ul {
+      margin: 8px 0 8px 18px;
+      padding: 0;
+    }
+    .tqa-instructions .note {
+      background: #f6f8fa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+    .tqa-instructions .example {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 12px 0;
+      background: #ffffff;
+    }
+    .tqa-instructions .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f6f8fa;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .tqa-instructions .field {
+      margin: 8px 0;
+    }
+    .tqa-instructions .label {
+      font-weight: 600;
+    }
+    .tqa-instructions .text {
+      margin-top: 4px;
+      padding: 8px 10px;
+      background: #f9fafb;
+      border: 1px solid #eef0f3;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+
+  <h2>Your task: Translation quality estimation </h2>
+  <p>
+    You will see an <strong>Instruction</strong>, a <strong>Source sentence</strong>, and a <strong>Translation to evaluate</strong>.
+    Please evaluate the <em>Translation to evaluate</em>.
+  </p>
+
+  <div class="note">
+    <p><strong>🫡 What to do</strong></p>
+    <ul>
+      <li><strong>Span labels:</strong> click on the span type (<em>Major</em> or <em>Minor</em>), then highlight the corresponding text in the <strong>Translation to evaluate</strong>.</li>
+      <li><strong>Major</strong> = meaning change, mistranslation; <strong>Minor</strong> = grammar, style issues.</li>
+      <li><strong>Optional comments:</strong> add any notes if helpful.</li>
+      <li><strong>Rate the Translation:</strong> set <strong>Translation rating</strong> and <strong>Adaptedness</strong> (0–100) of the Translation to evaluate.</li>
+    </ul>
+    <p style="margin-top: 10px;"><strong>💡 Quick definitions</strong></p>
+    <ul>
+      <li><strong>Translation rating:</strong> overall quality (meaning preservation + grammaticality/fluency).</li>
+      <li><strong>Adaptedness:</strong> is it adapted to the tone/context requested in the Instruction?</li>
+    </ul>
+    <p>⚠️ If the translation is not valid at all (wrong language or random text that is unrelated to the source), set <strong>Critical failure</strong> to <em>Yes</em>.</p>
+  </div>
+
+  <h3>Example 1 <span class="badge">Translation rating: 40 </span></h3>
+  <div class="example">
+    <div class="field">
+      <div class="label">Instruction</div>
+      <div class="text">Translate for a product manual. Keep it neutral and factual.</div>
+    </div>
+    <div class="field">
+      <div class="label">Source sentence (EN)</div>
+      <div class="text">The battery lasts up to two hours on a full charge.</div>
+    </div>
+    <div class="field">
+      <div class="label">Translation to evaluate</div>
+      <div class="text">La batterie tient jusqu’à deux jours lorsqu’elle est complètement chargée.</div>
+    </div>
+    <div class="note">
+      <strong>Rating</strong> the French text is well-formed, but <em>two hours</em> → <em>two days</em> is a meaning change.
+      <ul>
+        <li>Add Major error span on "deux jours" (meaning change).</li>
+        <li>Translation rating: 40.</li>
+        <li>Adaptedness: 100.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Example 2 <span class="badge">Translation rating: 70</span></h3>
+  <div class="example">
+    <div class="field">
+      <div class="label">Instruction</div>
+      <div class="text">Translate for a workplace email. Be clear and polite.</div>
+    </div>
+    <div class="field">
+      <div class="label">Source sentence (EN)</div>
+      <div class="text">Please submit the report by Friday at noon.</div>
+    </div>
+    <div class="field">
+      <div class="label">Translation to evaluate</div>
+      <div class="text">S’il vous plaît soumettre le rapport par vendredi à midi.</div>
+    </div>
+    <div class="note">
+      <strong>Rating</strong> meaning is mostly preserved, but the French phrasing is awkward/ungrammatical.
+      <ul>
+        <li>Add Minor error span on ungrammatical phrasing.</li>
+        <li>Translation rating: 70.</li>
+        <li>Adaptedness: 70.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Example 3 <span class="badge">Good translation, low adaptedness</span></h3>
+  <div class="example">
+    <div class="field">
+      <div class="label">Instruction</div>
+      <div class="text">Translate as a formal customer-service message with a professional tone.</div>
+    </div>
+    <div class="field">
+      <div class="label">Source sentence (EN)</div>
+      <div class="text">Your order has been shipped and should arrive tomorrow.</div>
+    </div>
+    <div class="field">
+      <div class="label">Translation to evaluate</div>
+      <div class="text">Ta commande a été expédiée et elle devrait arriver demain.</div>
+    </div>
+    <div class="note">
+      <strong>Rating</strong> meaning is correct and French is fluent, but it uses informal <em>tu/ta</em> instead of a professional tone.
+      <ul>
+        <li>Add Minor error span on informal phrasing.</li>
+        <li>Translation rating: 85.</li>
+        <li>Adaptedness: 65.</li>
+      </ul>
+    </div>
+  </div>
+</div>
